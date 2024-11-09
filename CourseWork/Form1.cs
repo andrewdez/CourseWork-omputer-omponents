@@ -1,53 +1,24 @@
-using System.Data.SqlClient;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CourseWork
 {
     public partial class Form1 : Form
     {
-        private string connectionString = "Server=DESKTOP-K2ID4TF;Database=ComputerPartsServiceCenter;User Id=user1;Password=user1;";
-
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void buttonFetchData_Click(object sender, EventArgs e)
-        {
-            FetchData();
-        }
 
-        private void FetchData()
-        {
-            // SQL-запит для вибору першого рядка з таблиці (наприклад, "Customers")
-            string query = "SELECT TOP 1 order_date FROM Orders"; // Замініть "Customers" та "Name" на ваші таблицю і колонку
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        // Виконання запиту і читання даних
-                        object result = command.ExecuteScalar();
-
-                        if (result != null)
-                        {
-                            // Виведення результату у Label або TextBox
-                            labelResult.Text = result.ToString();
-                        }
-                        else
-                        {
-                            labelResult.Text = "Дані не знайдено.";
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Помилка з'єднання або запиту: {ex.Message}");
-                }
-            }
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -61,7 +32,23 @@ namespace CourseWork
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FetchData();
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            AddOrder f2 = new AddOrder();
+            f2.Show(); // Shows Form2
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
