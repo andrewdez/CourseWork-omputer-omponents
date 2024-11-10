@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceCenterApp;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -7,7 +8,7 @@ namespace CourseWork
 {
     public partial class Form3 : Form
     {
-        private string connectionString = "Server=DESKTOP-K2ID4TF;Database=ServiceCenter;User Id=user1;Password=user1;";
+        private string connectionString = DatabaseConnection.GetConnection();
         private SqlDataAdapter dataAdapter;
         private DataTable dataTable;
 
@@ -15,13 +16,14 @@ namespace CourseWork
         {
             InitializeComponent();
             LoadOrders();
+            // Подія для кнопки пошуку
+            searchButton.Click += SearchButton_Click;
         }
 
         private void LoadOrders()
         {
             try
             {
-                // Ініціалізація DataTable та SqlDataAdapter
                 dataTable = new DataTable();
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -35,7 +37,6 @@ namespace CourseWork
 
                 dataGridView1.DataSource = dataTable;
 
-                // Додаємо кнопку "Update" у кожний рядок
                 DataGridViewButtonColumn updateButtonColumn = new DataGridViewButtonColumn
                 {
                     Name = "UpdateButton",
@@ -55,9 +56,37 @@ namespace CourseWork
             }
         }
 
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            PerformSearch(searchTextBox.Text);
+        }
+
+        private void PerformSearch(string searchText)
+        {
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                // Якщо поле пошуку порожнє, завантажуємо всі дані
+                LoadOrders();
+                return;
+            }
+
+            try
+            {
+                // Фільтруємо дані за OrderID, ClientName, ClientPhone або Status
+                dataTable.DefaultView.RowFilter =
+                                                  $"ClientName LIKE '%{searchText}%' OR " +
+                                                  $"ClientPhone LIKE '%{searchText}%' OR " +
+                                                  $"Status LIKE '%{searchText}%'";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error during search: " + ex.Message);
+            }
+        }
+
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Перевіряємо, чи натиснута кнопка "Update"
             if (e.ColumnIndex == dataGridView1.Columns["UpdateButton"].Index && e.RowIndex >= 0)
             {
                 UpdateRow(e.RowIndex);
@@ -68,7 +97,6 @@ namespace CourseWork
         {
             try
             {
-                // Отримуємо значення з вибраного рядка
                 int orderID = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["OrderID"].Value);
                 string clientName = dataGridView1.Rows[rowIndex].Cells["ClientName"].Value.ToString();
                 string clientPhone = dataGridView1.Rows[rowIndex].Cells["ClientPhone"].Value.ToString();
@@ -81,7 +109,6 @@ namespace CourseWork
                 {
                     conn.Open();
 
-                    // Запит на оновлення даних
                     string query = "UPDATE Order1 SET ClientName = @ClientName, ClientPhone = @ClientPhone, Description = @Description, " +
                                    "Status = @Status, EstimatedCompletionTime = @EstimatedCompletionTime, TotalCost = @TotalCost " +
                                    "WHERE OrderID = @OrderID";
