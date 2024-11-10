@@ -1,6 +1,6 @@
 ﻿namespace CourseWork
 {
-    partial class Form4
+    partial class Form5
     {
         /// <summary>
         /// Required designer variable.
@@ -36,19 +36,17 @@
             // 
             // dataGridView1
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 73);
+            dataGridView1.Location = new Point(12, 53);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(678, 317);
+            dataGridView1.Size = new Size(776, 314);
             dataGridView1.TabIndex = 0;
             // 
             // searchButton
             // 
-            searchButton.Location = new Point(216, 409);
+            searchButton.Location = new Point(190, 399);
             searchButton.Name = "searchButton";
             searchButton.Size = new Size(94, 29);
             searchButton.TabIndex = 1;
@@ -57,22 +55,22 @@
             // 
             // searchTextBox
             // 
-            searchTextBox.Location = new Point(12, 409);
+            searchTextBox.Location = new Point(12, 400);
             searchTextBox.Name = "searchTextBox";
-            searchTextBox.PlaceholderText = "Enter employee info";
-            searchTextBox.Size = new Size(198, 27);
+            searchTextBox.PlaceholderText = "Enter component info";
+            searchTextBox.Size = new Size(172, 27);
             searchTextBox.TabIndex = 2;
             // 
-            // Form4
+            // Form5
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(704, 450);
+            ClientSize = new Size(800, 450);
             Controls.Add(searchTextBox);
             Controls.Add(searchButton);
             Controls.Add(dataGridView1);
-            Name = "Form4";
-            Text = "Form4";
+            Name = "Form5";
+            Text = "Form5";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
