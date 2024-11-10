@@ -37,14 +37,17 @@ namespace CourseWork
 
                 dataGridView1.DataSource = dataTable;
 
-                DataGridViewButtonColumn updateButtonColumn = new DataGridViewButtonColumn
+                if (!dataGridView1.Columns.Contains("UpdateButton"))
                 {
-                    Name = "UpdateButton",
-                    HeaderText = "Update",
-                    Text = "Update",
-                    UseColumnTextForButtonValue = true
-                };
-                dataGridView1.Columns.Add(updateButtonColumn);
+                    DataGridViewButtonColumn updateButtonColumn = new DataGridViewButtonColumn
+                    {
+                        Name = "UpdateButton",
+                        HeaderText = "Update",
+                        Text = "Update",
+                        UseColumnTextForButtonValue = true
+                    };
+                    dataGridView1.Columns.Add(updateButtonColumn);
+                }
 
                 dataGridView1.ReadOnly = false;
                 dataGridView1.AllowUserToAddRows = false;
