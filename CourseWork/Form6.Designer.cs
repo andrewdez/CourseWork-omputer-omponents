@@ -28,40 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            dataGridView1 = new DataGridView();
+            searchButton = new Button();
+            searchTextBox = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // textBox1
+            // dataGridView1
             // 
-            textBox1.Location = new Point(136, 92);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 0;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(12, 68);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowTemplate.Height = 29;
+            dataGridView1.Size = new Size(776, 333);
+            dataGridView1.TabIndex = 0;
             // 
-            // textBox2
+            // searchButton
             // 
-            textBox2.Location = new Point(136, 152);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 1;
+            searchButton.Location = new Point(173, 407);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(94, 29);
+            searchButton.TabIndex = 1;
+            searchButton.Text = "Search";
+            searchButton.UseVisualStyleBackColor = true;
+            // 
+            // searchTextBox
+            // 
+            searchTextBox.Location = new Point(12, 407);
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.Size = new Size(155, 27);
+            searchTextBox.TabIndex = 2;
+            searchTextBox.TextChanged += textBox1_TextChanged;
             // 
             // Form6
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(searchTextBox);
+            Controls.Add(searchButton);
+            Controls.Add(dataGridView1);
             Name = "Form6";
             Text = "Form6";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private DataGridView dataGridView1;
+        private Button searchButton;
+        private TextBox searchTextBox;
     }
 }
