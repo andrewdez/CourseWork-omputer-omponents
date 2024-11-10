@@ -38,7 +38,7 @@
             // 
             // Button1
             // 
-            Button1.Location = new Point(91, 51);
+            Button1.Location = new Point(61, 74);
             Button1.Name = "Button1";
             Button1.Size = new Size(125, 114);
             Button1.TabIndex = 0;
@@ -48,7 +48,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(91, 197);
+            button3.Location = new Point(58, 208);
             button3.Name = "button3";
             button3.Size = new Size(128, 107);
             button3.TabIndex = 2;
@@ -58,7 +58,7 @@
             // 
             // button5
             // 
-            button5.Location = new Point(469, 197);
+            button5.Location = new Point(493, 208);
             button5.Name = "button5";
             button5.Size = new Size(128, 107);
             button5.TabIndex = 4;
@@ -68,7 +68,7 @@
             // 
             // button6
             // 
-            button6.Location = new Point(285, 197);
+            button6.Location = new Point(347, 208);
             button6.Name = "button6";
             button6.Size = new Size(128, 107);
             button6.TabIndex = 5;
@@ -78,21 +78,21 @@
             // 
             // button2
             // 
-            button2.Location = new Point(285, 51);
+            button2.Location = new Point(201, 208);
             button2.Name = "button2";
-            button2.Size = new Size(128, 114);
+            button2.Size = new Size(129, 110);
             button2.TabIndex = 6;
-            button2.Text = "Consumption of components";
+            button2.Text = "Component usage list";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
             // button4
             // 
-            button4.Location = new Point(469, 51);
+            button4.Location = new Point(201, 74);
             button4.Name = "button4";
             button4.Size = new Size(128, 114);
             button4.TabIndex = 7;
-            button4.Text = "Add Components";
+            button4.Text = "Add component usage";
             button4.UseVisualStyleBackColor = true;
             // 
             // Form1
