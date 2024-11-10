@@ -17,6 +17,7 @@ namespace CourseWork
             LoadComponentUsage();
             // Подія для кнопки пошуку
             searchButton.Click += SearchButton_Click;
+            insertButton.Click += InsertButton_Click;
         }
 
         private void LoadComponentUsage()
@@ -87,19 +88,17 @@ namespace CourseWork
 
             try
             {
-                // Фільтруємо дані за UsageID, OrderID, ComponentID, ComponentName, ComponentType або Price
+                // Фільтруємо дані за UsageID, ComponentName або ComponentType
                 dataTable.DefaultView.RowFilter = $"Convert(UsageID, 'System.String') LIKE '%{searchText}%' OR " +
-                                                  $"Convert(OrderID, 'System.String') LIKE '%{searchText}%' OR " +
-                                                  $"Convert(ComponentID, 'System.String') LIKE '%{searchText}%' OR " +
                                                   $"ComponentName LIKE '%{searchText}%' OR " +
-                                                  $"ComponentType LIKE '%{searchText}%' OR " +
-                                                  $"Convert(Price, 'System.String') LIKE '%{searchText}%'";
+                                                  $"ComponentType LIKE '%{searchText}%'";
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error during search: " + ex.Message);
             }
         }
+
 
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -197,6 +196,77 @@ namespace CourseWork
             catch (Exception ex)
             {
                 MessageBox.Show("Error deleting row: " + ex.Message);
+            }
+        }
+        private void InsertButton_Click(object sender, EventArgs e)
+        {
+            int orderID;
+            int componentID;
+
+            if (int.TryParse(orderIDTextBox.Text, out orderID) && int.TryParse(componentIDTextBox.Text, out componentID))
+            {
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+
+                        // Отримуємо значення ComponentName, ComponentType, Price з таблиці Components
+                        string query = "SELECT ComponentName, ComponentType, Price FROM Components WHERE ComponentID = @ComponentID";
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@ComponentID", componentID);
+
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    string componentName = reader["ComponentName"].ToString();
+                                    string componentType = reader["ComponentType"].ToString();
+                                    decimal price = (decimal)reader["Price"];
+
+                                    reader.Close(); // Закриваємо SqlDataReader перед виконанням наступного запиту
+
+                                    // Додаємо новий рядок до таблиці ComponentUsage
+                                    string insertQuery = "INSERT INTO ComponentUsage (OrderID, ComponentID, ComponentName, ComponentType, Price) " +
+                                                         "VALUES (@OrderID, @ComponentID, @ComponentName, @ComponentType, @Price)";
+                                    using (SqlCommand insertCmd = new SqlCommand(insertQuery, conn))
+                                    {
+                                        insertCmd.Parameters.AddWithValue("@OrderID", orderID);
+                                        insertCmd.Parameters.AddWithValue("@ComponentID", componentID);
+                                        insertCmd.Parameters.AddWithValue("@ComponentName", componentName);
+                                        insertCmd.Parameters.AddWithValue("@ComponentType", componentType);
+                                        insertCmd.Parameters.AddWithValue("@Price", price);
+
+                                        int rowsAffected = insertCmd.ExecuteNonQuery();
+
+                                        if (rowsAffected > 0)
+                                        {
+                                            MessageBox.Show("Row inserted successfully!");
+                                            LoadComponentUsage(); // Оновлення даних після вставки
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("No rows inserted. Please check the data.");
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Component not found. Please check the ComponentID.");
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error inserting row: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter valid OrderID and ComponentID.");
             }
         }
 
