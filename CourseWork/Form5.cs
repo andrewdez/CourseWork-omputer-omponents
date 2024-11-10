@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceCenterApp;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -7,7 +8,7 @@ namespace CourseWork
 {
     public partial class Form5 : Form
     {
-        private string connectionString = "Server=DESKTOP-K2ID4TF;Database=ServiceCenter;User Id=user1;Password=user1;";
+        private string connectionString = DatabaseConnection.GetConnection();
         private SqlDataAdapter dataAdapter;
         private DataTable dataTable;
 

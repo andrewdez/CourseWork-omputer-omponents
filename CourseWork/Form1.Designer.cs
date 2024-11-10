@@ -38,9 +38,9 @@
             // 
             // Button1
             // 
-            Button1.Location = new Point(61, 74);
+            Button1.Location = new Point(82, 74);
             Button1.Name = "Button1";
-            Button1.Size = new Size(125, 114);
+            Button1.Size = new Size(125, 107);
             Button1.TabIndex = 0;
             Button1.Text = "Add Order";
             Button1.UseVisualStyleBackColor = true;
@@ -48,9 +48,9 @@
             // 
             // button3
             // 
-            button3.Location = new Point(58, 208);
+            button3.Location = new Point(82, 209);
             button3.Name = "button3";
-            button3.Size = new Size(128, 107);
+            button3.Size = new Size(125, 110);
             button3.TabIndex = 2;
             button3.Text = "Order List";
             button3.UseVisualStyleBackColor = true;
@@ -58,9 +58,9 @@
             // 
             // button5
             // 
-            button5.Location = new Point(493, 208);
+            button5.Location = new Point(462, 209);
             button5.Name = "button5";
-            button5.Size = new Size(128, 107);
+            button5.Size = new Size(128, 110);
             button5.TabIndex = 4;
             button5.Text = "Manage Components";
             button5.UseVisualStyleBackColor = true;
@@ -68,7 +68,7 @@
             // 
             // button6
             // 
-            button6.Location = new Point(347, 208);
+            button6.Location = new Point(272, 74);
             button6.Name = "button6";
             button6.Size = new Size(128, 107);
             button6.TabIndex = 5;
@@ -78,7 +78,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(201, 208);
+            button2.Location = new Point(271, 209);
             button2.Name = "button2";
             button2.Size = new Size(129, 110);
             button2.TabIndex = 6;
@@ -88,12 +88,13 @@
             // 
             // button4
             // 
-            button4.Location = new Point(201, 74);
+            button4.Location = new Point(462, 74);
             button4.Name = "button4";
-            button4.Size = new Size(128, 114);
+            button4.Size = new Size(128, 107);
             button4.TabIndex = 7;
-            button4.Text = "Add component usage";
+            button4.Text = "Add component";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click_1;
             // 
             // Form1
             // 
