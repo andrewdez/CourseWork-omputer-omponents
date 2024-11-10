@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceCenterApp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +18,7 @@ namespace CourseWork
         {
             InitializeComponent();
         }
-        private string connectionString = "Server=DESKTOP-K2ID4TF;Database=ServiceCenter;User Id=user1;Password=user1;";
+        private string connectionString = DatabaseConnection.GetConnection();
         // Логіка кнопки Save
         private void button1_Click(object sender, EventArgs e)
         {

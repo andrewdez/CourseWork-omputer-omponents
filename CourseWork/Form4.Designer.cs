@@ -1,6 +1,6 @@
 ﻿namespace CourseWork
 {
-    partial class Form3
+    partial class Form4
     {
         /// <summary>
         /// Required designer variable.
@@ -28,70 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            databaseConnectionBindingSource = new BindingSource(components);
             dataGridView1 = new DataGridView();
-            searchButton = new Button();
-            searchTextBox = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)databaseConnectionBindingSource).BeginInit();
+            button1 = new Button();
+            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // databaseConnectionBindingSource
-            // 
-            databaseConnectionBindingSource.DataSource = typeof(ServiceCenterApp.DatabaseConnection);
             // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(31, 59);
+            dataGridView1.Location = new Point(12, 73);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(1049, 291);
+            dataGridView1.Size = new Size(776, 303);
             dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // searchButton
+            // button1
             // 
-            searchButton.Location = new Point(253, 384);
-            searchButton.Name = "searchButton";
-            searchButton.Size = new Size(104, 33);
-            searchButton.TabIndex = 1;
-            searchButton.Text = "Search";
-            searchButton.UseVisualStyleBackColor = true;
+            button1.Location = new Point(216, 409);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 1;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
-            // searchTextBox
+            // textBox1
             // 
-            searchTextBox.Location = new Point(31, 387);
-            searchTextBox.Name = "searchTextBox";
-            searchTextBox.PlaceholderText = "Enter search text";
-            searchTextBox.Size = new Size(216, 27);
-            searchTextBox.TabIndex = 2;
+            textBox1.Location = new Point(12, 409);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(198, 27);
+            textBox1.TabIndex = 2;
             // 
-            // Form3
+            // Form4
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1111, 450);
-            Controls.Add(searchTextBox);
-            Controls.Add(searchButton);
+            ClientSize = new Size(800, 450);
+            Controls.Add(textBox1);
+            Controls.Add(button1);
             Controls.Add(dataGridView1);
-            Name = "Form3";
-            Text = "Order List";
-            ((System.ComponentModel.ISupportInitialize)databaseConnectionBindingSource).EndInit();
+            Name = "Form4";
+            Text = "Form4";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private BindingSource databaseConnectionBindingSource;
+
         private DataGridView dataGridView1;
-        private Button searchButton;
-        private TextBox searchTextBox;
+        private Button button1;
+        private TextBox textBox1;
     }
 }
