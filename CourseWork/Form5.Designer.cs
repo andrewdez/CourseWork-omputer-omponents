@@ -34,6 +34,7 @@
             insertButton = new Button();
             orderIDTextBox = new TextBox();
             componentIDTextBox = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -44,12 +45,12 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(776, 314);
+            dataGridView1.Size = new Size(1050, 314);
             dataGridView1.TabIndex = 0;
             // 
             // searchButton
             // 
-            searchButton.Location = new Point(679, 394);
+            searchButton.Location = new Point(968, 392);
             searchButton.Name = "searchButton";
             searchButton.Size = new Size(94, 29);
             searchButton.TabIndex = 1;
@@ -58,10 +59,10 @@
             // 
             // searchTextBox
             // 
-            searchTextBox.Location = new Point(501, 394);
+            searchTextBox.Location = new Point(799, 395);
             searchTextBox.Name = "searchTextBox";
             searchTextBox.PlaceholderText = "Enter component info";
-            searchTextBox.Size = new Size(172, 27);
+            searchTextBox.Size = new Size(163, 27);
             searchTextBox.TabIndex = 2;
             // 
             // insertButton
@@ -89,11 +90,22 @@
             componentIDTextBox.Size = new Size(143, 27);
             componentIDTextBox.TabIndex = 5;
             // 
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(12, 4);
+            label1.Name = "label1";
+            label1.Size = new Size(455, 46);
+            label1.TabIndex = 6;
+            label1.Text = "Components usage menu";
+            label1.Click += label1_Click;
+            // 
             // Form5
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1076, 450);
+            Controls.Add(label1);
             Controls.Add(componentIDTextBox);
             Controls.Add(orderIDTextBox);
             Controls.Add(insertButton);
@@ -101,7 +113,7 @@
             Controls.Add(searchButton);
             Controls.Add(dataGridView1);
             Name = "Form5";
-            Text = "Form5";
+            Text = "Components usage";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -115,5 +127,6 @@
         private Button insertButton;
         private TextBox orderIDTextBox;
         private TextBox componentIDTextBox;
+        private Label label1;
     }
 }

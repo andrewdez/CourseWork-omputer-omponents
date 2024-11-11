@@ -31,6 +31,7 @@
             dataGridView1 = new DataGridView();
             searchButton = new Button();
             searchTextBox = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -41,7 +42,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(776, 333);
+            dataGridView1.Size = new Size(919, 333);
             dataGridView1.TabIndex = 0;
             // 
             // searchButton
@@ -57,20 +58,31 @@
             // 
             searchTextBox.Location = new Point(12, 407);
             searchTextBox.Name = "searchTextBox";
+            searchTextBox.PlaceholderText = "Enter components info";
             searchTextBox.Size = new Size(155, 27);
             searchTextBox.TabIndex = 2;
             searchTextBox.TextChanged += textBox1_TextChanged;
+            // 
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(504, 56);
+            label1.TabIndex = 3;
+            label1.Text = "Manage components menu";
             // 
             // Form6
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(943, 450);
+            Controls.Add(label1);
             Controls.Add(searchTextBox);
             Controls.Add(searchButton);
             Controls.Add(dataGridView1);
             Name = "Form6";
-            Text = "Form6";
+            Text = "Manage components";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -81,5 +93,6 @@
         private DataGridView dataGridView1;
         private Button searchButton;
         private TextBox searchTextBox;
+        private Label label1;
     }
 }
