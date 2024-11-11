@@ -33,6 +33,7 @@
             dataGridView1 = new DataGridView();
             searchButton = new Button();
             searchTextBox = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)databaseConnectionBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -47,11 +48,11 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(31, 59);
+            dataGridView1.Location = new Point(31, 75);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(1049, 291);
+            dataGridView1.Size = new Size(1181, 291);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -72,11 +73,21 @@
             searchTextBox.Size = new Size(216, 27);
             searchTextBox.TabIndex = 2;
             // 
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(31, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(521, 53);
+            label1.TabIndex = 3;
+            label1.Text = "Order list and update menu";
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1111, 450);
+            ClientSize = new Size(1225, 450);
+            Controls.Add(label1);
             Controls.Add(searchTextBox);
             Controls.Add(searchButton);
             Controls.Add(dataGridView1);
@@ -93,5 +104,6 @@
         private DataGridView dataGridView1;
         private Button searchButton;
         private TextBox searchTextBox;
+        private Label label1;
     }
 }

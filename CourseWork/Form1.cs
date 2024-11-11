@@ -72,8 +72,18 @@ namespace CourseWork
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            Form7 form7 = new Form7(); 
+            Form7 form7 = new Form7();
             form7.Show();
+        }
+
+        private void False(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
