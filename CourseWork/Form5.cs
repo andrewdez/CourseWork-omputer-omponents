@@ -243,6 +243,14 @@ namespace CourseWork
 
                                         if (rowsAffected > 0)
                                         {
+                                            // Зменшуємо кількість компонентів на 1 у таблиці Components
+                                            string updateQuery = "UPDATE Components SET StockQuantity = StockQuantity - 1 WHERE ComponentID = @ComponentID";
+                                            using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
+                                            {
+                                                updateCmd.Parameters.AddWithValue("@ComponentID", componentID);
+                                                updateCmd.ExecuteNonQuery();
+                                            }
+
                                             MessageBox.Show("Row inserted successfully!");
                                             LoadComponentUsage(); // Оновлення даних після вставки
                                         }
@@ -270,6 +278,7 @@ namespace CourseWork
                 MessageBox.Show("Please enter valid OrderID and ComponentID.");
             }
         }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
